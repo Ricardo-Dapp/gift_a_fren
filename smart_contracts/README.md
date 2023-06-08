@@ -19,4 +19,7 @@ npx hardhat run scripts/deploy.js
    or you can cd into the smart_contract folder and use npx hardhat run scripts/deploy.js --network localhost while running a local node to create a local instance.
 3. Everything should work from here, open another terminal and cd into ../client/gift_a_fren folder and use npm run dev in order to run the website locally.
 4. Connect your wallet with the connect button at the top of the website.
-5. you the join the website for free or click on a persons name and enter your info in order to get started.
+5. you join the website for free or click on a persons name and enter your info in order to get started.
+
+it takes about 15 seconds for the stuff to load in due to the way the animations work.
+also you will have to refresh your page when you enter any data in order to see updated values.

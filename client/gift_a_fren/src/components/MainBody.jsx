@@ -21,7 +21,7 @@ const MainBody = () => {
   const [toAddress, setToAddress] = useState("");
 
   const getFrenDataArray = async () => {
-    console.log(isDataReady);
+    //console.log(isDataReady);
     if (isDataReady) {
       return;
     }
@@ -39,15 +39,12 @@ const MainBody = () => {
     for (let i = 0; i < data.length; i++) {
       if (data[i][4] == 0) {
         //console.log("bronze", data[i]);
-        //setBronzeFrens((prevValue) => [...prevValue, data[i]]);
         bronzeData.push(data[i]);
       } else if (data[i][4] == 1) {
-        console.log("silver", data[i]);
-        //setSilverFrens((prevValue) => [...prevValue, data[i]]);
+        //console.log("silver", data[i]);
         silverData.push(data[i]);
       } else if (data[i][4] == 2) {
-        console.log("gold", data[i]);
-        //setGoldFrens((prevValue) => [...prevValue, data[i]]);
+        //console.log("gold", data[i]);
         goldData.push(data[i]);
       }
     }
@@ -144,10 +141,8 @@ const MainBody = () => {
   };
 
   const handleSubmit = (event) => {
-    // make sure to check if the eth amount is actually a number
-    // make sure to add values for name and message if they don't put anything
     event.preventDefault();
-    console.log(inputs);
+    //console.log(inputs);
     sendGift();
   };
 
@@ -163,7 +158,7 @@ const MainBody = () => {
       { value: ethers.utils.parseEther(inputs.ethValue) }
     );
 
-    console.log(data);
+    //console.log(data);
   };
 
   useEffect(() => {
@@ -228,7 +223,7 @@ const MainBody = () => {
           Gold
         </h4>
 
-        <div className="grid grid-rows-1 grid-flow-col w-xl h-5/6">
+        <div className="grid grid-rows-1 grid-flow-col min-w-xl h-5/6">
           {isGoldData &&
             goldFrensRandomArray.map((item, index) => {
               return (
@@ -257,7 +252,7 @@ const MainBody = () => {
         <h4 className="text-gray-300 border-solid border-2 border-gray-200 bg-gradient-to-b from-slate-700 to-slate-800">
           Silver
         </h4>
-        <div className="grid grid-rows-1 grid-flow-col max-w-lg h-5/6">
+        <div className="grid grid-rows-1 grid-flow-col min-w-lg h-5/6">
           {isSilverData &&
             silverFrensRandomArray.map((item, index) => {
               return (
@@ -268,7 +263,12 @@ const MainBody = () => {
                 >
                   <h3 className="text-gray-50">Name: {item[0]}</h3>
                   <h5 className="text-gray-50">Message: {item[1]}</h5>
-                  <h6 className="text-gray-50 ">Address: {item[2]}</h6>
+                  <h6 className="text-gray-50 ">
+                    Address:{" "}
+                    {`${item[2].slice(0, 5)}...${item[2].slice(
+                      item[2].length - 4
+                    )}`}
+                  </h6>
                   <h6 className="text-gray-50">
                     Eth Gifted: {ethers.utils.formatEther(item[3])} ETH
                   </h6>
@@ -277,11 +277,11 @@ const MainBody = () => {
             })}
         </div>
       </div>
-      <div className=" h-54 bg-gradient-to-b from-slate-900 to-yellow-950 overflow-hidden">
+      <div className=" h-56 bg-gradient-to-b from-slate-900 to-yellow-950 overflow-hidden">
         <h4 className="text-amber-400 border-solid border-2 border-amber-500 bg-gradient-to-b from-slate-700 to-slate-800">
           Bronze
         </h4>
-        <div className="grid grid-rows-1 grid-flow-col max-w-md h-54">
+        <div className="grid grid-rows-1 grid-flow-col min-w-md h-54">
           {isBronzeData &&
             bronzeFrensRandomArray.map((item, index) => {
               return (

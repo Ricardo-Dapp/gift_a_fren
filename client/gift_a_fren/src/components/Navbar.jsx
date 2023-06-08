@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -14,6 +14,7 @@ const Navbar = () => {
       setIsConnected(true);
     }
   }
+
   return (
     <div className=" bg-gray-800 px-4 py-3 drop-shadow-sm flex justify-between">
       <h1 className="text-gray-300">Gift A Fren</h1>

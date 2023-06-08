@@ -1,5 +1,7 @@
 // currently set to the sepolia test net contract
-export const contractAddress = "0xB43E677e630B0562E8640e8dDD1067c868a4Da30";
+//
+// 0xB43E677e630B0562E8640e8dDD1067c868a4Da30 sepolia address
+export const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 export const abi = [
   {
     inputs: [],
